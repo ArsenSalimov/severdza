@@ -6,6 +6,8 @@ import {Form} from 'bootstrap-vue/es/components';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import store from './app/store'
+
 import App from './app/App.vue';
 import Photographers from './app/photographers/Photographers.vue';
 import SignIn from './app/signin/SignIn.vue';
@@ -24,5 +26,6 @@ Vue.use(VueRouter);
 new Vue({
     el: '#app',
     router,
+    store,
     render: h => h(App)
 });
