@@ -1,5 +1,10 @@
 <template>
-    <h1>{{message}}</h1>
+    <div>
+        <b-card
+                v-for="photographer in photographers"
+                :title="photographer.name"
+        ></b-card>
+    </div>
 </template>
 
 <script>
@@ -7,7 +12,17 @@
         name: 'photographers',
         data() {
             return {
-                message: 'Photographers'
+                photographers: [
+                    {
+                        name: 'Test 1'
+                    },
+                    {
+                        name: 'Test 2'
+                    },
+                    {
+                        name: 'Test 3'
+                    },
+                ]
             }
         }
     };

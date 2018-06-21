@@ -22,6 +22,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -30,5 +34,6 @@ module.exports = {
             template: 'src/index.html'
         }),
         new VueLoaderPlugin()
-    ]
+    ],
+    devtool: "eval-source-map"
 };
