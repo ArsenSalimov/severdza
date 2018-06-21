@@ -2,7 +2,7 @@
     <b-container>
         <b-row>
             <b-col>
-                <b-form novalidate>
+                <b-form novalidate @submit="onSignInClick">
                     <b-form-group
                             label="Email"
                             label-for="emailInput">
@@ -43,6 +43,8 @@
     import bFormInput from 'bootstrap-vue/es/components/form-input/form-input';
     import bButton from 'bootstrap-vue/es/components/button/button';
 
+    import {mapActions} from 'vuex';
+
     export default {
         name: 'signIn',
         components: {
@@ -59,6 +61,22 @@
                 email: '',
                 password: ''
             }
+        },
+        computed: {
+            credentials() {
+                return {
+                    login: this.email,
+                    password: this.password
+                }
+            }
+        },
+        methods: {
+            onSignInClick(event) {
+                event.preventDefault();
+
+                this.signIn(this.credentials);
+            },
+            ...mapActions(['signIn'])
         }
     };
 </script>

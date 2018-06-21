@@ -3,8 +3,12 @@
     [
       "env",
       {
-        "modules": false
+        "modules": false,
+        "targets": {
+          "browsers": "last 1 chrome versions"
+        }
       }
     ]
-  ]
+  ],
+  "plugins": ["transform-object-rest-spread"]
 }
