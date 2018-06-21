@@ -4,10 +4,10 @@
 
 <script>
     export default {
-        name: 'app',
+        name: 'photographers',
         data() {
             return {
-                message: 'Hello, hot world!'
+                message: 'Photographers'
             }
         }
     };

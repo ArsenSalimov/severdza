@@ -1,7 +1,18 @@
 import Vue from 'vue';
-import App from './App.vue';
+import VueRouter from 'vue-router';
+import App from './app/App.vue';
+import Photographers from './app/photographers/Photographers.vue';
+
+const router = new VueRouter({
+    routes: [
+        {path: '/photographers', component: Photographers}
+    ]
+});
+
+Vue.use(VueRouter);
 
 new Vue({
-   el: '#app',
-   render: h => h(App)
+    el: '#app',
+    router,
+    render: h => h(App)
 });
