@@ -1,0 +1,16 @@
+// TODO implement seppare configs for different environments
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: `${__dirname}/build`,
+        filename: 'bundle.js'
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
+        })
+    ]
+};
