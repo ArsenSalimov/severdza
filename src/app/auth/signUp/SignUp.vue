@@ -2,7 +2,7 @@
     <b-container>
         <b-row>
             <b-col>
-                <b-form novalidate @submit="onSignInClick">
+                <b-form novalidate @submit.prevent="onSignUpClick">
                     <b-form-group
                             label="Email"
                             label-for="emailInput">
@@ -27,7 +27,7 @@
                         </b-form-input>
                     </b-form-group>
 
-                    <b-button type="submit" variant="primary">Sign In</b-button>
+                    <b-button type="submit" variant="primary">Sign Up</b-button>
                 </b-form>
             </b-col>
         </b-row>
@@ -46,7 +46,7 @@
     import {mapActions} from 'vuex';
 
     export default {
-        name: 'signIn',
+        name: 'signUp',
         components: {
             bContainer,
             bRow,
@@ -63,20 +63,18 @@
             }
         },
         computed: {
-            credentials() {
+            userInfo() {
                 return {
-                    login: this.email,
+                    email: this.email,
                     password: this.password
                 }
             }
         },
         methods: {
-            onSignInClick(event) {
-                event.preventDefault();
-
-                this.signIn(this.credentials);
+            onSignUpClick() {
+                this.signUp(this.userInfo);
             },
-            ...mapActions(['signIn'])
+            ...mapActions(['signUp'])
         }
     };
 </script>

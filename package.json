@@ -4,13 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode proguction --progress",
+    "build": "webpack --mode production --progress",
     "start:dev": "webpack-dev-server --mode development --progress --hot --open"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^0.28.11",
@@ -19,6 +20,7 @@
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
@@ -26,6 +28,7 @@
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
     "vue": "^2.5.16",
+    "vue-alertify": "^1.0.5",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   }
