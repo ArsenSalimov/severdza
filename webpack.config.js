@@ -29,12 +29,29 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8000,
+                            name: 'app/images/[hash]-[name].[ext]'
+                        }
+                    }
+                ],
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: 'src/index.html',
+            title: 'Сердце Севастополя'
         }),
         new VueLoaderPlugin(),
         new BundleAnalyzerPlugin({

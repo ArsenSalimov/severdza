@@ -11,13 +11,15 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import store from './app/store'
 
 import App from './app/App.vue';
-import Photographers from './app/photographers/Photographers.vue';
+import FeedPage from './app/pages/feed/FeedPage.vue';
+import WardsPage from './app/pages/wards/WardsPage.vue';
+import ContactsPage from './app/pages/contacts/ContactsPage.vue';
 
 const router = new Router({
     routes: [
-        {path: '/photographers', component: Photographers},
-        {path: '/sign-in', component: () => import('./app/auth/signIn/SignIn.vue')},
-        {path: '/sign-up', component: () => import('./app/auth/signUp/SignUp.vue')},
+        {path: '/', component: WardsPage},
+        {path: '/feed', component: FeedPage},
+        {path: '/contacts', component: ContactsPage},
     ]
 });
 

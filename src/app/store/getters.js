@@ -1,1 +1,0 @@
-export const isUserLoggedIn = state => state.user !== null;
