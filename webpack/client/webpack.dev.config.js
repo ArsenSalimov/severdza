@@ -19,6 +19,21 @@ module.exports = merge(baseConfig, {
               exclude: /node_modules/,
               loader: 'vue-loader'
           },
+          {
+              test: /\.css$/,
+              use: [
+                  'vue-style-loader',
+                  'css-loader'
+              ],
+          },
+          {
+              test: /\.less$/,
+              use: [
+                  'vue-style-loader',
+                  'css-loader',
+                  'less-loader'
+              ],
+          },
       ]
     },
     plugins: [

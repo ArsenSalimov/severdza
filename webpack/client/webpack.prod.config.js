@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(baseConfig, {
@@ -15,6 +16,21 @@ module.exports = merge(baseConfig, {
               exclude: /node_modules/,
               loader: 'vue-loader'
           },
+          {
+              test: /\.css$/,
+              use: [
+                  MiniCssExtractPlugin.loader,
+                  'css-loader',
+              ],
+          },
+          {
+              test: /\.less$/,
+              use: [
+                  MiniCssExtractPlugin.loader,
+                  'css-loader',
+                  'less-loader'
+              ],
+          },
       ]
     },
     plugins: [
@@ -24,6 +40,10 @@ module.exports = merge(baseConfig, {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             title: 'Сердце Севастополя'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
         }),
         new VueSSRClientPlugin(),
     ]

@@ -2,7 +2,6 @@
 
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     output: {
@@ -32,21 +31,6 @@ module.exports = {
                     }
                 ],
             },
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader'
-                ],
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'less-loader'
-                ],
-            },
         ]
     },
     resolve: {
@@ -54,10 +38,6 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        })
     ],
     devtool: "eval-source-map"
 };
