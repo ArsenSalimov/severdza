@@ -6,7 +6,7 @@
   "scripts": {
     "build:client": "webpack --config webpack/webpack.client.config.js --progress",
     "build:server": "webpack --config webpack/webpack.server.config.js --progress",
-    "build": "rimraf build && npm run build:client && npm run build:server",
+    "build": "rimraf build && webpack",
     "start": "cross-env NODE_ENV=development npm run build && node server"
   },
   "devDependencies": {

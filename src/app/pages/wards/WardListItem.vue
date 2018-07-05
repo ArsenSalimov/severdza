@@ -14,19 +14,10 @@
 </template>
 
 <script>
-    import bLink from 'bootstrap-vue/es/components/link/link';
-    import bCard from 'bootstrap-vue/es/components/card/card'
-    import bCardBody from 'bootstrap-vue/es/components/card/card-body';
-
     const DESCRIPTION_MAX_LENGTH = 150;
 
     export default {
         name: "WardListItem",
-        components: {
-            bLink,
-            bCard,
-            bCardBody
-        },
         props: ['ward'],
         computed: {
             ellipsizedDescription() {

@@ -49,6 +49,9 @@ module.exports = {
             },
         ]
     },
+    resolve: {
+        extensions: ['.js', '.vue']
+    },
     plugins: [
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({

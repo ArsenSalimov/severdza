@@ -12,16 +12,12 @@
 </template>
 
 <script>
-    import bContainer from 'bootstrap-vue/es/components/layout/container';
-    import bRow from 'bootstrap-vue/es/components/layout/row';
     import WardListItem from "./WardListItem.vue";
 
     export default {
         name: 'WardsPage',
         components: {
             WardListItem,
-            bContainer,
-            bRow
         },
         data() {
             return {

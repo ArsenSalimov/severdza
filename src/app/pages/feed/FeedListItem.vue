@@ -8,23 +8,12 @@
 </template>
 
 <script>
-    import bLink from 'bootstrap-vue/es/components/link/link';
-    import bCard from 'bootstrap-vue/es/components/card/card'
-    import bCardBody from 'bootstrap-vue/es/components/card/card-body';
-    import bImg from 'bootstrap-vue/es/components/image/img';
-
     import he from 'he';
 
     const DESCRIPTION_MAX_LENGTH = 150;
 
     export default {
         name: "FeedListItem",
-        components: {
-            bLink,
-            bCard,
-            bCardBody,
-            bImg
-        },
         props: ['feedItem'],
         computed: {
             decodedText() {

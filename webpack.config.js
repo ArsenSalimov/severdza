@@ -1,9 +1,4 @@
-let config;
+const clientConfig = require('./webpack/webpack.client.config');
+const serverConfig = require('./webpack/webpack.server.config');
 
-if (process.env.NODE_ENV === 'production') {
-    config = require('./webpack/webpack-prod-config')
-} else {
-    config = require('./webpack/webpack-dev-config')
-}
-
-module.exports = config;
+module.exports = [clientConfig, serverConfig];

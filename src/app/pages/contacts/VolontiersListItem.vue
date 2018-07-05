@@ -21,18 +21,9 @@
 </template>
 
 <script>
-    import bCol from 'bootstrap-vue/es/components/layout/col';
-    import bImage from 'bootstrap-vue/es/components/image/img';
-    import bLink from 'bootstrap-vue/es/components/link/link';
-
     export default {
         name: "VolontiersListItem",
         props: ['volontier'],
-        components: {
-            bImage,
-            bCol,
-            bLink
-        }
     }
 </script>
 

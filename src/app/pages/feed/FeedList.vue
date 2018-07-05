@@ -12,17 +12,12 @@
 
 <script>
     import {mapState} from 'vuex';
-
-    import bContainer from 'bootstrap-vue/es/components/layout/container';
-    import bRow from 'bootstrap-vue/es/components/layout/row'
     import FeedListItem from "./FeedListItem.vue";
 
     export default {
         name: 'FeedPage',
         components: {
             FeedListItem,
-            bContainer,
-            bRow
         },
         computed: {
             ...mapState(['feed'])

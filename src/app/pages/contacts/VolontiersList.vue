@@ -14,17 +14,12 @@
 </template>
 
 <script>
-    import bContainer from 'bootstrap-vue/es/components/layout/container';
-    import bRow from 'bootstrap-vue/es/components/layout/row'
-
     import VolontiersListItem from './VolontiersListItem.vue';
 
     export default {
         name: "VolontiersList",
         props: ['volontiers'],
         components: {
-            bContainer,
-            bRow,
             VolontiersListItem
         }
     }

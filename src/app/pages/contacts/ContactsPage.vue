@@ -15,14 +15,11 @@
     import VolontiersList from "./VolontiersList.vue";
     import SocialNetworks from "./SocialNetworks.vue";
 
-    import bContainer from 'bootstrap-vue/es/components/layout/container';
-
     export default {
         name: "ContactsPage",
         components: {
             SocialNetworks,
             VolontiersList,
-            bContainer,
         },
         computed: mapState(['volontiers', 'socialNetworks'])
     }

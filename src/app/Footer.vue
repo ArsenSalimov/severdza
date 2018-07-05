@@ -10,17 +10,8 @@
 </template>
 
 <script>
-    import bContainer from 'bootstrap-vue/es/components/layout/container';
-    import bRow from 'bootstrap-vue/es/components/layout/row';
-    import bCol from 'bootstrap-vue/es/components/layout/col';
-
     export default {
         name: 'Footer',
-        components: {
-            bContainer,
-            bRow,
-            bCol,
-        },
     };
 </script>
 

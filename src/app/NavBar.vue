@@ -18,19 +18,10 @@
 <script>
     import logo from './images/logo_small.png';
 
-    import bNavbar from 'bootstrap-vue/es/components/navbar/navbar'
-    import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand'
-    import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav';
-    import bNavItem from 'bootstrap-vue/es/components/nav/nav-item';
+
 
     export default {
         name: 'NavBar',
-        components: {
-            bNavbar,
-            bNavbarBrand,
-            bNavbarNav,
-            bNavItem,
-        },
         data() {
             return {
                 logo

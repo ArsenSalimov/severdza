@@ -25,12 +25,6 @@
 </template>
 
 <script>
-    import bContainer from 'bootstrap-vue/es/components/layout/container';
-    import bRow from 'bootstrap-vue/es/components/layout/row';
-    import bCol from 'bootstrap-vue/es/components/layout/col';
-    import bImage from 'bootstrap-vue/es/components/image/img';
-    import bLink from 'bootstrap-vue/es/components/link/link';
-
     import facebookIcon from '../../images/socialNetworks/facebook.svg';
     import vkIcon from '../../images/socialNetworks/vk.svg';
     import instagramIcon from '../../images/socialNetworks/instagram.svg';
@@ -38,13 +32,6 @@
     export default {
         name: "SocialNetworks",
         props: ['socialNetworks'],
-        components: {
-            bContainer,
-            bRow,
-            bCol,
-            bImage,
-            bLink
-        },
         data() {
             return {
                 facebookIcon,
