@@ -2,15 +2,12 @@ const baseConfig = require('../webpack.base.config');
 const merge = require('webpack-merge');
 
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = merge(baseConfig, {
     entry: './src/entry-server.js',
     target: 'node',
     devtool: 'source-map',
-    mode: isProduction ? 'production' : 'development',
+    mode: 'development',
     output: {
         filename: 'server-bundle.js',
         libraryTarget: 'commonjs2'
@@ -28,14 +25,14 @@ module.exports = merge(baseConfig, {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                 ],
             },
             {
                 test: /\.less$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                     'less-loader'
                 ],
@@ -44,9 +41,5 @@ module.exports = merge(baseConfig, {
     },
     plugins: [
         new VueSSRServerPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        })
     ]
 });

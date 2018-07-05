@@ -6,8 +6,11 @@
   "scripts": {
     "build:client": "webpack --config webpack/webpack.client.config.js --progress",
     "build:server": "webpack --config webpack/webpack.server.config.js --progress",
-    "build": "rimraf build && webpack",
-    "start": "cross-env NODE_ENV=development npm run build && node server"
+    "build:dev": "rimraf build && cross-env NODE_ENV=development webpack",
+    "build:prod": "rimraf build && cross-env NODE_ENV=production webpack",
+    "start:dev": "npm run build:dev && cross-env NODE_ENV=development node server",
+    "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server",
+    "start": "npm run start:dev"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
