@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const baseConfig = require('./webpack.base.config');
 const merge = require('webpack-merge');
 
@@ -6,7 +7,10 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(baseConfig, {
-    entry: './src/entry-client.js',
+    entry: [
+        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+        './src/entry-client.js'
+    ],
     target: 'web',
     module: {
       rules: [
@@ -25,6 +29,7 @@ module.exports = merge(baseConfig, {
             template: 'src/index.html',
             title: 'Сердце Севастополя'
         }),
-        new VueSSRClientPlugin()
+        new VueSSRClientPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
 });
