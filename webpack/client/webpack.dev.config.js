@@ -12,6 +12,7 @@ module.exports = merge(baseConfig, {
         './src/entry-client.js'
     ],
     target: 'web',
+    mode: 'development',
     module: {
       rules: [
           {

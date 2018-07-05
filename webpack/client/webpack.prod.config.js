@@ -9,6 +9,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = merge(baseConfig, {
     entry: './src/entry-client.js',
     target: 'web',
+    mode: 'production',
     module: {
       rules: [
           {
