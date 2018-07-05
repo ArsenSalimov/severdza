@@ -1,5 +1,8 @@
 import Vue from 'vue';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 import bNavbar from 'bootstrap-vue/es/components/navbar/navbar'
 import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand'
 import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav';
