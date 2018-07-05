@@ -2,20 +2,24 @@ const vue = require('vue');
 const path = require('path');
 const express = require('express');
 const fs = require('fs');
-const createApp = require('./build/server-bundle').default;
+const {createBundleRenderer} = require('vue-server-renderer');
 
 const server = express();
 
 server.use('/build', express.static(path.resolve(__dirname, './build')));
 
-const renderer = require('vue-server-renderer').createRenderer({
-    template: fs.readFileSync('./build/index.html', 'utf-8')
+const serverBundle = require('./build/vue-ssr-server-bundle.json');
+const clientManifest = require('./build/vue-ssr-client-manifest.json');
+
+const template = fs.readFileSync('./build/index.html', 'utf-8');
+const renderer = createBundleRenderer(serverBundle, {
+    runInNewContext: false,
+    clientManifest,
+    template
 });
 
 server.get('*', (req, res) => {
-    const app = createApp();
-
-    renderer.renderToString(app, (err, html) => {
+    renderer.renderToString((err, html) => {
         res.end(html);
     })
 });
