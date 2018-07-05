@@ -12,11 +12,11 @@
 
 <script>
     import {mapState} from 'vuex';
-    import VolontiersList from "./VolontiersList.vue";
-    import SocialNetworks from "./SocialNetworks.vue";
+    import VolontiersList from './VolontiersList.vue';
+    import SocialNetworks from './SocialNetworks.vue';
 
     export default {
-        name: "ContactsPage",
+        name: 'ContactsPage',
         components: {
             SocialNetworks,
             VolontiersList,

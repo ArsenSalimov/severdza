@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import WardListItem from "./WardListItem.vue";
+    import WardListItem from './WardListItem.vue';
 
     export default {
         name: 'WardsPage',

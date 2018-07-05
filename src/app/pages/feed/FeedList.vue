@@ -12,7 +12,7 @@
 
 <script>
     import {mapState} from 'vuex';
-    import FeedListItem from "./FeedListItem.vue";
+    import FeedListItem from './FeedListItem.vue';
 
     export default {
         name: 'FeedPage',

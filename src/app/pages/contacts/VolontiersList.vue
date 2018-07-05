@@ -17,7 +17,7 @@
     import VolontiersListItem from './VolontiersListItem.vue';
 
     export default {
-        name: "VolontiersList",
+        name: 'VolontiersList',
         props: ['volontiers'],
         components: {
             VolontiersListItem

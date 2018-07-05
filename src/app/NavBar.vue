@@ -18,8 +18,6 @@
 <script>
     import logo from './images/logo_small.png';
 
-
-
     export default {
         name: 'NavBar',
         data() {

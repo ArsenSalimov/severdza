@@ -17,7 +17,7 @@
     const DESCRIPTION_MAX_LENGTH = 150;
 
     export default {
-        name: "WardListItem",
+        name: 'WardListItem',
         props: ['ward'],
         computed: {
             ellipsizedDescription() {

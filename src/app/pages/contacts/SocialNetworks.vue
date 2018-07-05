@@ -30,7 +30,7 @@
     import instagramIcon from '../../images/socialNetworks/instagram.svg';
 
     export default {
-        name: "SocialNetworks",
+        name: 'SocialNetworks',
         props: ['socialNetworks'],
         data() {
             return {

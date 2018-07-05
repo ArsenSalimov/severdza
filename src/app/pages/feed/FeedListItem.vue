@@ -10,10 +10,8 @@
 <script>
     import he from 'he';
 
-    const DESCRIPTION_MAX_LENGTH = 150;
-
     export default {
-        name: "FeedListItem",
+        name: 'FeedListItem',
         props: ['feedItem'],
         computed: {
             decodedText() {

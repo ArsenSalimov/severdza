@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue';
+import Router from 'vue-router';
 
 import FeedPage from './feed/FeedPage.vue';
 import WardsPage from './wards/WardsPage.vue';

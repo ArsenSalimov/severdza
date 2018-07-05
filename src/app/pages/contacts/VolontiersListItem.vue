@@ -22,7 +22,7 @@
 
 <script>
     export default {
-        name: "VolontiersListItem",
+        name: 'VolontiersListItem',
         props: ['volontier'],
     }
 </script>
