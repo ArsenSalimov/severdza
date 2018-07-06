@@ -13,6 +13,7 @@ module.exports = merge(baseConfig, {
     ],
     target: 'web',
     mode: 'development',
+    devtool: "source-map",
     module: {
       rules: [
           {
