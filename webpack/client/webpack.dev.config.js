@@ -38,9 +38,10 @@ module.exports = merge(baseConfig, {
       ]
     },
     plugins: [
-      /*  new BundleAnalyzerPlugin({
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
             openAnalyzer: false
-        }) */
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             title: 'Сердце Севастополя'
