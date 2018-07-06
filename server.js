@@ -17,7 +17,7 @@ const renderer = createBundleRenderer(serverBundle, {
     template
 });
 
-app.use('/build', express.static(path.resolve(__dirname, './build')));
+app.use('/build/', express.static(path.resolve(__dirname, './build/')));
 app.use(compression());
 
 if (!isProduction) {
@@ -29,7 +29,7 @@ if (!isProduction) {
     const compiler = webpack(webpackConfig);
 
     app.use(webpackDevMiddleware(compiler, {
-        publicPath: '/build',
+        publicPath: '/build/',
     }));
     app.use(webpackHotMiddleware(compiler));
 }

@@ -5,7 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
     output: {
         path: path.resolve(__dirname, '..', 'build'),
-        publicPath: '/build',
+        publicPath: '/build/',
         chunkFilename: '[name].bundle.js',
         filename: '[name].bundle.js'
     },
