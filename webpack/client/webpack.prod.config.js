@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(baseConfig, {
     entry: './src/entry-client.js',
@@ -34,9 +35,10 @@ module.exports = merge(baseConfig, {
       ]
     },
     plugins: [
-      /*  new BundleAnalyzerPlugin({
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
             openAnalyzer: false
-        }) */
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             title: 'Сердце Севастополя'

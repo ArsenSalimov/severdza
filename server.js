@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const compression = require('compression');
 const http = require('http');
 const fs = require('fs');
 const {createBundleRenderer} = require('vue-server-renderer');
@@ -17,6 +18,7 @@ const renderer = createBundleRenderer(serverBundle, {
 });
 
 app.use('/build', express.static(path.resolve(__dirname, './build')));
+app.use(compression());
 
 if (!isProduction) {
     const webpack = require('webpack');
