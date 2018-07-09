@@ -5,6 +5,7 @@ Vue.use(Router);
 
 export default function createRouter() {
     return new Router({
+        mode: 'history',
         routes: [
             {path: '/', component: () => import('./wards/WardsPage.vue')},
             {path: '/feed', component: () => import('./feed/FeedPage.vue')},
