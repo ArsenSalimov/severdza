@@ -6,6 +6,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = merge(baseConfig, {
@@ -48,6 +49,7 @@ module.exports = merge(baseConfig, {
             template: 'src/index.html',
             title: 'Сердце Севастополя'
         }),
+        new FaviconsWebpackPlugin('./src/app/images/logo.png'),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'

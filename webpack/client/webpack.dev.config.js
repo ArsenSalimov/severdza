@@ -5,6 +5,7 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = merge(baseConfig, {
     entry: [
@@ -47,6 +48,7 @@ module.exports = merge(baseConfig, {
             template: 'src/index.html',
             title: 'Сердце Севастополя'
         }),
+        new FaviconsWebpackPlugin('./src/app/images/logo.png'),
         new VueSSRClientPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
