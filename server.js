@@ -35,7 +35,9 @@ if (!isProduction) {
 }
 
 app.get('*', (req, res) => {
-    renderer.renderToString((err, html) => {
+    const context = {url: req.url};
+
+    renderer.renderToString(context, (err, html) => {
         res.end(html);
     })
 });
