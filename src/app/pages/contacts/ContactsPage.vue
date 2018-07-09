@@ -21,7 +21,10 @@
             SocialNetworks,
             VolontiersList,
         },
-        computed: mapState(['volontiers', 'socialNetworks'])
+        computed: mapState({
+            volontiers: state => state.contacts.volontiers,
+            socialNetworks: state => state.contacts.socialNetworks,
+        })
     }
 </script>
 

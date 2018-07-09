@@ -4,10 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build:client": "webpack --config webpack/webpack.client.config.js --progress",
-    "build:server": "webpack --config webpack/webpack.server.config.js --progress",
-    "build:dev": "rimraf build && cross-env NODE_ENV=development webpack",
-    "build:prod": "rimraf build && cross-env NODE_ENV=production webpack",
+    "build:dev": "rimraf build && cross-env NODE_ENV=development webpack --progress",
+    "build:prod": "rimraf build && cross-env NODE_ENV=production webpack --progress",
     "start:dev": "npm run build:dev && cross-env NODE_ENV=development node server",
     "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server",
     "start": "npm run start:dev"
@@ -52,6 +50,7 @@
     "he": "^1.1.1",
     "vue": "^2.5.16",
     "vue-alertify": "^1.0.5",
+    "vue-infinite-loading": "^2.3.1",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.5.16",
     "vuex": "^3.0.1"

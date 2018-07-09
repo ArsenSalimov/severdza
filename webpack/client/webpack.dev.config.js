@@ -13,7 +13,7 @@ module.exports = merge(baseConfig, {
     ],
     target: 'web',
     mode: 'development',
-    devtool: "source-map",
+    devtool: "cheap-module-eval-source-map",
     module: {
       rules: [
           {

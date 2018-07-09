@@ -1,8 +1,8 @@
 <template>
-    <b-card class="feed-list-item">
+    <b-card class="feed-list-item w-100">
         <b-card-body>
             <p class="card-text" >{{decodedText}}</p>
-            <b-img :src="feedItem.attachments.photo[0]"></b-img>
+            <b-image v-if="feedItem.attachments" :src="feedItem.attachments.photo[0]"></b-image>
         </b-card-body>
     </b-card>
 </template>
@@ -15,7 +15,7 @@
         props: ['feedItem'],
         computed: {
             decodedText() {
-                return he.decode(this.feedItem.text)
+                return this.feedItem.text //he.decode(this.feedItem.text)
             }
         }
     }
