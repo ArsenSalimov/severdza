@@ -1,5 +1,5 @@
 {
-  "name": "wedding-frontend",
+  "name": "serdze-frontend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -47,8 +47,8 @@
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
     "compression": "^1.7.2",
+    "date-fns": "^1.29.0",
     "express": "^4.16.3",
-    "he": "^1.1.1",
     "vue": "^2.5.16",
     "vue-alertify": "^1.0.5",
     "vue-infinite-loading": "^2.3.1",

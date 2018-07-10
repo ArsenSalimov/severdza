@@ -6,23 +6,27 @@ import feed from './modules/feed';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
-    modules: {
-        contacts,
-        feed
-    }
-});
+export function createStore() {
+    const store = new Vuex.Store({
+        modules: {
+            feed,
+            contacts,
+        }
+    });
 
-if (module.hot) {
-    module.hot.accept(['./modules/contacts', './modules/feed'], () => {
-        const newContacts = require('./modules/contacts');
-        const newFeed = require('./modules/feed');
+    if (module.hot) {
+        module.hot.accept(['./modules/contacts', './modules/feed'], () => {
+            const newContacts = require('./modules/contacts');
+            const newFeed = require('./modules/feed');
 
-        store.hotUpdate({
-            modules: {
-                contacts: newContacts,
-                feed: newFeed
-            },
+            store.hotUpdate({
+                modules: {
+                    contacts: newContacts,
+                    feed: newFeed
+                },
+            })
         })
-    })
+    }
+
+    return store;
 }

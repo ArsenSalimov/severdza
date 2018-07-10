@@ -1,5 +1,5 @@
 <template>
-    <feed-list :feed="feed"/>
+    <feed-list :feed-items="feedItems" :full-loaded="fullLoaded"/>
 </template>
 
 <script>
@@ -12,7 +12,10 @@
             FeedList,
         },
         computed: {
-            ...mapState(['feed'])
-        }
+            ...mapState({
+                feedItems: state => state.feed.items,
+                fullLoaded: state => state.feed.fullLoaded,
+            })
+        },
     };
 </script>

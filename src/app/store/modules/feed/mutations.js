@@ -1,3 +1,4 @@
-export function addFeed(state, feedItems) {
-     state.items = [...state.items, ...feedItems];
+export function addFeed(state, {items, total}) {
+    state.items = state.items.concat(items);
+    state.fullLoaded = state.items.length >= total;
 }

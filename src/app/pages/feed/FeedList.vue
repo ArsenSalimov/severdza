@@ -6,38 +6,55 @@
                     col lg="12"
                     class="m-2 mx-auto"/>
         </b-row>
-        <infinite-loading @infinite="infiniteHandler"/>
+        <infinite-loading v-if="showInfiniteLoader" @infinite="infiniteHandler"/>
     </b-container>
 </template>
 
 <script>
-    import {mapState, mapActions} from 'vuex';
+    import {mapActions} from 'vuex';
     import FeedListItem from './FeedListItem.vue';
 
     import InfiniteLoading from 'vue-infinite-loading';
 
     export default {
-        name: 'FeedPage',
+        name: 'FeedList',
+        props: ['feedItems', 'fullLoaded'],
         components: {
             FeedListItem,
             InfiniteLoading
         },
-        computed: {
-            ...mapState({
-                feedItems: state => state.feed.items
-            })
+        data() {
+            return {
+                showInfiniteLoader: false,
+                requestInProcess: false,
+                page: 0
+            }
         },
         methods: {
             async infiniteHandler($state) {
-                await this.loadFeed();
+                if (this.fullLoaded) {
+                    $state.complete();
+                    return;
+                }
 
-                setTimeout(() => $state.loaded(), 5000)
+                if (this.requestInProcess) {
+                    return;
+                }
+                this.requestInProcess = true;
 
+                await this.loadFeedPage();
+
+                $state.loaded();
+                this.requestInProcess = false;
+            },
+            async loadFeedPage() {
+                await this.loadFeed(this.page);
+                this.page =+ 1;
             },
             ...mapActions(['loadFeed'])
         },
-        async created() {
-           // await this.loadFeed();
+        mounted() {
+            this.showInfiniteLoader = true;
         }
     };
 </script>

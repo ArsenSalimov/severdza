@@ -7,9 +7,9 @@ export default function createRouter() {
     return new Router({
         mode: 'history',
         routes: [
-            {path: '/', component: () => import('./wards/WardsPage.vue')},
-            {path: '/feed', component: () => import('./feed/FeedPage.vue')},
-            {path: '/contacts', component: () => import('./contacts/ContactsPage.vue')},
+            {name: 'wards', path: '/', component: () => import('./wards/WardsPage.vue')},
+            {name: 'feed', path: '/feed', component: () => import('./feed/FeedPage.vue')},
+            {name: 'contacts', path: '/contacts', component: () => import('./contacts/ContactsPage.vue')},
         ]
     });
 }
