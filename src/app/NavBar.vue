@@ -7,8 +7,8 @@
         </b-navbar-brand>
 
         <b-navbar-nav class="w-75 mx-auto" fill tabs>
-            <b-nav-item>Главная</b-nav-item>
-            <b-nav-item to="feed">Истории</b-nav-item>
+            <b-nav-item to="home">Главная</b-nav-item>
+            <b-nav-item to="feed">Новости</b-nav-item>
             <b-nav-item to="wards">Наши подопечные</b-nav-item>
             <b-nav-item to="contacts">Контакты</b-nav-item>
         </b-navbar-nav>
