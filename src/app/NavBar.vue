@@ -1,8 +1,8 @@
 <template>
     <b-navbar sticky toggleable="md" type="dark" variant="info">
-        <b-navbar-brand href="#">
+        <b-navbar-brand class="d-flex" href="#">
             <img :src="logo">
-            <span>"Сердце Севастополя"</span>
+            <span class="d-block ml-3">Волонтерское движение<br>"Сердце Севастополя"</span>
 
         </b-navbar-brand>
 
