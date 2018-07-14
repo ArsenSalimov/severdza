@@ -18,7 +18,9 @@ const renderer = createBundleRenderer(serverBundle, {
 });
 
 app.use('/build/', express.static(path.resolve(__dirname, './build/')));
-app.use(compression());
+app.use(compression({
+    filter: function () { return true; }
+}));
 
 if (!isProduction) {
     const webpack = require('webpack');
@@ -43,4 +45,4 @@ app.get('*', (req, res) => {
 });
 
 const server = http.createServer(app);
-server.listen(8080);
+server.listen(isProduction ? 80 : 8080);
