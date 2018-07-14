@@ -20,3 +20,9 @@
         },
     };
 </script>
+
+<style lang="less">
+    * {
+        font-family: 'Fira Sans', sans-serif;
+    }
+</style>

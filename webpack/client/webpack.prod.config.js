@@ -47,7 +47,6 @@ module.exports = merge(baseConfig, {
         }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
-            title: 'Сердце Севастополя'
         }),
         new FaviconsWebpackPlugin('./src/app/images/logo.png'),
         new MiniCssExtractPlugin({

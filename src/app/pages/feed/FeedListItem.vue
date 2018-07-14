@@ -2,9 +2,9 @@
     <b-card class="feed-list-item w-100">
         <b-card-body>
             <p class="text-right">{{formattedDate}}</p>
-            <p v-if="!isTextShouldBeTrimmed || isExpaned" class="card-text">{{text}}</p>
+            <p v-if="!isTextShouldBeTrimmed || isExpaned" class="card-text" v-html="formatText(text)"></p>
             <template v-else>
-                <p class="card-text">{{trimmedText}}</p>
+                <p class="card-text" v-html="formatText(trimmedText)"></p>
                 <p class="show-more-button" @click.prevent="showFull">Показать полностью</p>
             </template>
 
@@ -59,6 +59,11 @@
         methods: {
             format(date, formatString) {
                 return format(date, formatString, {locale: ru});
+            },
+            formatText(text) {
+                const namedLinkRegexp = /\[(.+?)\|(.+?)]/g;
+
+                return text.replace(namedLinkRegexp, '<a href="https://vk.com/$1">$2</a>');
             },
             showFull() {
                 this.isExpaned = true;
