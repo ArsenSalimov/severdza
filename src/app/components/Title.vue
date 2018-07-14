@@ -16,10 +16,18 @@
     .title {
         margin: 42px;
 
+        @media screen and (max-width: 500px) {
+            margin: 21px;
+        }
+
         h1 {
             font-size: 44px;
             position: relative;
             display: inline-block;
+
+            @media screen and (max-width: 500px) {
+                font-size: 40px;
+            }
 
             &:after {
                 content: "";
