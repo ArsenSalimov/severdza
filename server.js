@@ -17,10 +17,10 @@ const renderer = createBundleRenderer(serverBundle, {
     template
 });
 
-app.use('/build/', express.static(path.resolve(__dirname, './build/')));
 app.use(compression({
     filter: function () { return true; }
 }));
+app.use('/build/', express.static(path.resolve(__dirname, './build/')));
 
 if (!isProduction) {
     const webpack = require('webpack');
