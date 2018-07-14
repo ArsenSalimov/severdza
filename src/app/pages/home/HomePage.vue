@@ -1,6 +1,6 @@
 <template>
     <div>
-        <app-title title="Волонтерское движение 'Сердце Севастополя'"
+        <app-title title="Волонтерское движение “Сердце Севастополя“"
                    sub-title="Помощь людям в трудных жизненных обстоятельствах"/>
 
         <b-carousel
@@ -13,20 +13,37 @@
                 <img slot="img" class="image" :src="slide"/>
             </b-carousel-slide>
         </b-carousel>
+
+        <MediaNews class="media-news"/>
+        <LastNews/>
+        <YouCanHelp/>
     </div>
 </template>
 
 <script>
+    import {mapState} from 'vuex';
+
     import bCarousel from 'bootstrap-vue/es/components/carousel/carousel';
     import bCarouselSlide from 'bootstrap-vue/es/components/carousel/carousel-slide';
     import AppTitle from '../../components/Title';
+    import MediaNews from './MediaNews';
+    import YouCanHelp from './YouCanHelp';
+    import LastNews from './LastNews';
 
     export default {
         name: 'HomePage',
         components: {
+            LastNews,
+            YouCanHelp,
+            MediaNews,
             bCarousel,
             bCarouselSlide,
             AppTitle
+        },
+        computed: {
+            ...mapState({
+                feedItems: state => state.feed.items,
+            })
         },
         data() {
             return {
@@ -44,7 +61,7 @@
 
 <style lang="less">
     .carousel {
-        height: 600px;
+        height: 400px;
 
         &:focus {
             outline: none;
@@ -56,13 +73,17 @@
             width: inherit;
             height: inherit;
         }
+
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#f00' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/></svg>") !important;
+        }
+
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#f00' viewBox='0 0 8 8'><path d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/></svg>") !important;
+        }
     }
 
-    .carousel-control-next-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#f00' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/></svg>") !important;
-    }
-
-    .carousel-control-prev-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#f00' viewBox='0 0 8 8'><path d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/></svg>") !important;
+    .media-news {
+        margin-top: 75px;
     }
 </style>
