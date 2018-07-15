@@ -1,17 +1,23 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import contacts from './modules/contacts';
-import feed from './modules/feed';
+import feedState from './modules/feed/state';
+import contactsState from './modules/contacts/state';
+
+import * as feedActions from './modules/feed/actions';
+import * as feedMutations from './modules/feed/mutations';
 
 Vue.use(Vuex);
 
 export function createStore() {
     const store = new Vuex.Store({
-        modules: {
-            feed,
-            contacts,
-        }
+        state: {
+            ...feedState,
+            ...contactsState
+        },
+        actions: feedActions,
+        mutations: feedMutations
+
     });
 
     if (module.hot) {

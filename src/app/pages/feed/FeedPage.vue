@@ -13,8 +13,8 @@
         },
         computed: {
             ...mapState({
-                feedItems: state => state.feed.items,
-                fullLoaded: state => state.feed.fullLoaded,
+                feedItems: state => state.items,
+                fullLoaded: state => state.fullLoaded,
             })
         },
     };

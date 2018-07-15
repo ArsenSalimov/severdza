@@ -53,7 +53,7 @@
             },
             async loadFeedPage() {
                 await this.loadFeed(this.page);
-                this.page =+ 1;
+                this.page = this.page + 1;
             },
             ...mapActions(['loadFeed'])
         },

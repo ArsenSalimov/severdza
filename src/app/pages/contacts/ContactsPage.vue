@@ -21,8 +21,8 @@
             AppTitle
         },
         computed: mapState({
-            volontiers: state => state.contacts.volontiers,
-            socialNetworks: state => state.contacts.socialNetworks,
+            volontiers: state => state.volontiers,
+            socialNetworks: state => state.socialNetworks,
         })
     }
 </script>
