@@ -18,6 +18,7 @@ import bCardBody from 'bootstrap-vue/es/components/card/card-body';
 import bLink from 'bootstrap-vue/es/components/link/link';
 
 import bImg from 'bootstrap-vue/es/components/image/img';
+import bImgLazy from 'bootstrap-vue/es/components/image/img-lazy';
 
 /* Navigation */
 Vue.component('bNavbar', bNavbar);
@@ -39,3 +40,4 @@ Vue.component('bLink', bLink);
 
 /* Images */
 Vue.component('bImage', bImg);
+Vue.component('bImageLazy', bImgLazy);

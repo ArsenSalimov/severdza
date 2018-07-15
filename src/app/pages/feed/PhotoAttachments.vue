@@ -1,13 +1,14 @@
 <template>
     <div :style="{height: `${imageLayouts.height}px`}">
         <div class="photo-attachments">
-            <b-image v-for="(photo, index) in photos"
-                     :key="photo.id"
-                     class="photo-attachment"
-                     :src="chooseSize(photo).url"
-                     :width="imageLayouts.positions[index].width"
-                     :height="imageLayouts.positions[index].height"
-                     :style="{
+            <b-image-lazy v-for="(photo, index) in photos"
+                          :key="photo.id"
+                          class="photo-attachment"
+                          blank-color="#bbb"
+                          :src="chooseSize(photo).url"
+                          :width="imageLayouts.positions[index].width"
+                          :height="imageLayouts.positions[index].height"
+                          :style="{
                     left: `${imageLayouts.positions[index].x}px`,
                     top:  `${imageLayouts.positions[index].y}px`,
                  }"
