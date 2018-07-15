@@ -47,7 +47,6 @@
         padding-top: 32px;
         padding-bottom: 32px;
 
-
         .help-container {
             margin-top: 44px;
 

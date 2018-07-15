@@ -3,19 +3,22 @@
         <app-title title="Волонтерское движение “Сердце Севастополя“"
                    sub-title="Помощь людям в трудных жизненных обстоятельствах"/>
 
-        <b-carousel
-                class="carousel"
-                indicators
-                img-width="1200"
-                img-height="600"
-                controls>
-            <b-carousel-slide class="carousel" v-for="(slide, index) in slides" :key="index">
-                <img slot="img" class="image" :src="slide"/>
-            </b-carousel-slide>
-        </b-carousel>
+        <b-container>
+            <b-carousel
+                    class="carousel"
+                    indicators
+                    img-width="1200"
+                    img-height="600"
+                    controls>
+                <b-carousel-slide class="carousel" v-for="(slide, index) in slides" :key="index">
+                    <img slot="img" class="image" :src="slide"/>
+                </b-carousel-slide>
+            </b-carousel>
+        </b-container>
 
         <MediaNews class="media-news"/>
-        <LastNews/>
+        <VideoPublications />
+        <LastNews :last-news="lastNews"/>
         <YouCanHelp/>
     </div>
 </template>
@@ -29,10 +32,12 @@
     import MediaNews from './MediaNews';
     import YouCanHelp from './YouCanHelp';
     import LastNews from './LastNews';
+    import VideoPublications from './VideoPublications';
 
     export default {
         name: 'HomePage',
         components: {
+            VideoPublications,
             LastNews,
             YouCanHelp,
             MediaNews,
@@ -53,6 +58,12 @@
                     'https://pp.userapi.com/c850020/v850020072/16c5e/63fQVzVx8bQ.jpg',
                     'https://pp.userapi.com/c846324/v846324101/7e03d/64aqe8CcgcY.jpg',
                     'https://pp.userapi.com/c850032/v850032910/c588/w0bWKOsA6PY.jpg'
+                ],
+                lastNews: [
+                    {},
+                    {},
+                    {},
+                    {},
                 ]
             }
         }
