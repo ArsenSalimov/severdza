@@ -6,7 +6,11 @@
                     col lg="12"
                     class="m-2 mx-auto"/>
         </b-row>
-        <infinite-loading v-if="showInfiniteLoader" @infinite="infiniteHandler"/>
+        <infinite-loading v-if="showInfiniteLoader" @infinite="infiniteHandler">
+            <div slot="no-more">
+                На этом все :)
+            </div>
+        </infinite-loading>
     </b-container>
 </template>
 

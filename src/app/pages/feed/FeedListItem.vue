@@ -8,7 +8,7 @@
                 <p class="show-more-button" @click.prevent="showFull">Показать полностью</p>
             </template>
 
-            <photo-attachments v-if="feedItem.photos" :photos="feedItem.photos" />
+            <attachments v-if="feedItem.attachments" :attachments="feedItem.attachments" />
         </b-card-body>
     </b-card>
 </template>
@@ -16,7 +16,7 @@
 <script>
     import {isToday, isYesterday, isThisYear, format} from 'date-fns';
     import ru from 'date-fns/locale/ru'
-    import PhotoAttachments from './PhotoAttachments';
+    import Attachments from './Attachments';
 
     const SHORT_TEXT_LENGTH = 500;
 
@@ -24,7 +24,7 @@
         name: 'FeedListItem',
         props: ['feedItem'],
         components: {
-            PhotoAttachments
+            Attachments
         },
         data() {
             return {
