@@ -50,8 +50,8 @@ let server;
 
 if (isProduction) {
     const options = {
-        key: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8')
+        key: fs.readFileSync('/etc/letsencrypt/live/xn----8sbfgebb4c0aakelfdq4d4j.xn--p1ai/privkey.pem', 'utf8'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/xn----8sbfgebb4c0aakelfdq4d4j.xn--p1ai/privkey.pem', 'utf8')
     };
 
     server = spdy.createServer(options, app);
