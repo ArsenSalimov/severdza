@@ -60,4 +60,12 @@ if (isProduction) {
 }
 
 
-server.listen(isProduction ? 80 : 8080);
+server.listen(isProduction ? 80 : 8080)
+    .listen(port, (error) => {
+        if (error) {
+            console.error(error)
+            return process.exit(1)
+        } else {
+            console.log('Listening on port: ' + port + '.')
+        }
+    });
