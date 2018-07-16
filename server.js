@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const spdy = require('spdy');
 const compression = require('compression');
 const http = require('http');
 const fs = require('fs');
@@ -45,5 +46,18 @@ app.get('*', (req, res) => {
     })
 });
 
-const server = http.createServer(app);
+let server;
+
+if (isProduction) {
+    const options = {
+        key: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8')
+    };
+
+    server = spdy.createServer(options, app);
+} else {
+    server = http.createServer(app);
+}
+
+
 server.listen(isProduction ? 80 : 8080);
