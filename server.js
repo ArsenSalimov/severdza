@@ -18,9 +18,10 @@ const renderer = createBundleRenderer(serverBundle, {
 });
 
 app.use(compression({
-    filter: function () { return true; }
+    filter: () => true
 }));
 app.use('/build/', express.static(path.resolve(__dirname, './build/')));
+app.use('/.well-known/', express.static(path.resolve(__dirname, './.well-known/')));
 
 if (!isProduction) {
     const webpack = require('webpack');
