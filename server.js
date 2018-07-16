@@ -59,13 +59,14 @@ if (isProduction) {
     server = http.createServer(app);
 }
 
+const port = isProduction ? 80 : 8080;
 
-server.listen(isProduction ? 80 : 8080)
+server
     .listen(port, (error) => {
         if (error) {
             console.error(error)
             return process.exit(1)
         } else {
-            console.log('Listening on port: ' + port + '.')
+            console.log(`Listening on port: ${port}.`)
         }
     });
