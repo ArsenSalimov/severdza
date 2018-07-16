@@ -46,7 +46,20 @@ app.get('*', (req, res) => {
     })
 });
 
-let server;
+function listenServer(serverName) {
+    return error => {
+        if (error) {
+            console.error(error)
+            return process.exit(1)
+        } else {
+            console.log(`${serverName} started`)
+        }
+    }
+}
+
+http.createServer(app)
+    .listen(isProduction ? 80 : 8080, listenServer("http"));
+
 
 if (isProduction) {
     const options = {
@@ -54,19 +67,7 @@ if (isProduction) {
         cert: fs.readFileSync('/etc/letsencrypt/live/xn----8sbfgebb4c0aakelfdq4d4j.xn--p1ai/cert.pem', 'utf8')
     };
 
-    server = spdy.createServer(options, app);
-} else {
-    server = http.createServer(app);
+    spdy
+        .createServer(options, app)
+        .listen(443, listenServer("https"))
 }
-
-const port = isProduction ? 443 : 8080;
-
-server
-    .listen(port, (error) => {
-        if (error) {
-            console.error(error)
-            return process.exit(1)
-        } else {
-            console.log(`Listening on port: ${port}.`)
-        }
-    });
