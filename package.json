@@ -7,7 +7,7 @@
     "build:dev": "rimraf build && cross-env NODE_ENV=development webpack --progress",
     "build:prod": "rimraf build && cross-env NODE_ENV=production webpack --progress",
     "start:dev": "npm run build:dev && cross-env NODE_ENV=development node server",
-    "start:prod": "npm run build:prod && cross-env NODE_ENV=production forever start server.js",
+    "start:prod": "npm run build:prod && forever stop server.js && cross-env NODE_ENV=production forever start server.js",
     "start": "npm run start:dev"
   },
   "devDependencies": {
