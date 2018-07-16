@@ -59,7 +59,7 @@ if (isProduction) {
     server = http.createServer(app);
 }
 
-const port = isProduction ? 80 : 8080;
+const port = isProduction ? 443 : 8080;
 
 server
     .listen(port, (error) => {
