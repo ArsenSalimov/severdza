@@ -36,28 +36,28 @@
             return {
                 publications: [
                     {
-                        url: '"http://ruinformer.com/page/serdce-sevastopolja-i-nash-dom-sevastopol-prodolzhajut-ustraivat-sudbu-tamary-bajadzhi',
-                        logo: 'http://ruinformer.com/application/maxsite/templates/ruinformer/images/logo.png',
+                        url: 'http://ruinformer.com/page/serdce-sevastopolja-i-nash-dom-sevastopol-prodolzhajut-ustraivat-sudbu-tamary-bajadzhi',
+                        logo: '/informer_logo.png',
                         text: '«Сердце Севастополя» и «Наш дом — Севастополь» продолжают устраивать судьбу Тамары Баяджи'
                     },
                     {
-                        url: '"http://primechaniya.ru/home/news/noyabr_2017/peshhernaya_zhenshhina-_uzhas_v_centre_sevastopolya/',
-                        logo: 'https://primechaniya.ru/v5/images/logo-2017-1.png',
+                        url: 'http://primechaniya.ru/home/news/noyabr_2017/peshhernaya_zhenshhina-_uzhas_v_centre_sevastopolya/',
+                        logo: 'premechaniya_logo.png',
                         text: 'Пещерная женщина: ужас в центре Севастополя'
                     },
                     {
                         url: 'https://sevastopol.su/news/pochti-polden-rukovoditel-volontyorskogo-dvizheniya-serdce-sevastopolya-anastasiya-makeeva',
-                        logo: 'https://sevastopol.su/sites/default/files/logo_500px.gif',
+                        logo: 'forPost_logo.gif',
                         text: 'Помогать надо «с головой» — севастопольский волонтёр'
                     },
                     {
                         url: 'http://primechaniya.ru/home/news/mart-2018/grazhdanskoe-obshhestvo-kak-sevastopolcy-spasayut-drug-druga/',
-                        logo: 'https://primechaniya.ru/v5/images/logo-2017-1.png',
+                        logo: 'premechaniya_logo.png',
                         text: 'Гажданское общество: как севастопольцы спасают друг друг'
                     },
                     {
                         url: 'https://news.rambler.ru/other/38570403-oslepshaya-zhenschina-prozhila-bolshe-goda-v-sevastopolskoy-peschere/',
-                        logo: 'https://icdn.lenta.ru/images/2017/12/15/12/20171215124847801/pic_b1b691e47b34f8fb681241a06b8b821b.jpg',
+                        logo: 'rambler_logo.jpg',
                         text: 'Ослепшая женщина прожила больше года в севастопольской пещере'
                     },
                     /* {

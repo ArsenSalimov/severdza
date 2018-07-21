@@ -23,6 +23,7 @@ app.use(compression({
 }));
 app.use('/build/', express.static(path.resolve(__dirname, './build/')));
 app.use('/.well-known/', express.static(path.resolve(__dirname, './.well-known/')));
+app.use('/', express.static(path.resolve(__dirname, './public/')));
 
 if (!isProduction) {
     const webpack = require('webpack');
@@ -49,10 +50,10 @@ app.get('*', (req, res) => {
 function listenServer(serverName) {
     return error => {
         if (error) {
-            console.error(error)
-            return process.exit(1)
+            console.error(error);
+            return process.exit(1);
         } else {
-            console.log(`${serverName} started`)
+            console.log(`${serverName} started`);
         }
     }
 }
@@ -69,5 +70,5 @@ if (isProduction) {
 
     spdy
         .createServer(options, app)
-        .listen(443, listenServer("https"))
+        .listen(443, listenServer("https"));
 }
