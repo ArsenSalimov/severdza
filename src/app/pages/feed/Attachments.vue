@@ -17,13 +17,12 @@
                         blank-color="#bbb"
                         :src="attachment.photo.url"/>
 
-                <b-embed v-else-if="attachment.type === 'video'"
-                         type="iframe"
-                         aspect="1by1"
-                         controls
-                         class="embed-attachment"
-                         :src="attachment.video.url"
-                />
+                <plyr v-else-if="attachment.type === 'video'">
+                    <iframe :width="imageLayouts.positions[index].width"
+                            :height="imageLayouts.positions[index].height"
+                            :src="attachment.video.url"
+                            allowfullscreen></iframe>
+                </plyr>
             </div>
 
         </div>
@@ -33,6 +32,9 @@
 <script>
     const maxWidth = 1028;
 
+    import {PlyrYoutube, PlyrVideo, Plyr} from 'vue-plyr'
+    import 'vue-plyr/dist/vue-plyr.css'
+
     import * as layoutFixed from 'image-layout/layouts/fixed-partition';
     import * as layoutSingle from 'image-layout/layouts/single';
     import bEmbed from 'bootstrap-vue/es/components/embed/embed';
@@ -41,13 +43,17 @@
         name: 'Attachments',
         props: ['attachments'],
         components: {
-            bEmbed
+            bEmbed,
+
+            PlyrVideo,
+            PlyrYoutube,
+            Plyr
         },
         data() {
             return {
                 imageLayouts: {
                     height: 0
-                }
+                },
             }
         },
         methods: {
@@ -61,7 +67,7 @@
                         if (attachment.type === 'photo') {
                             return {width: attachment.photo.width, height: attachment.photo.height};
                         } else {
-                            return {width: attachment.video.width, height: attachment.video.height};
+                            return {width: attachment.video.width || maxWidth, height: attachment.video.height || (maxWidth / 1.78)};
                         }
                     }
                 );
