@@ -40,17 +40,6 @@ if (!isProduction) {
     app.use(webpackHotMiddleware(compiler));
 }
 
-if (isProduction) {
-    app.use((req, res, next) => {
-        if (req.secure) {
-            next();
-        } else {
-            res.redirect(`https://${req.headers.host}${req.url}`)
-        }
-    });
-}
-
-
 app.get('*', (req, res) => {
     const context = {url: req.url};
 
@@ -79,6 +68,10 @@ if (isProduction) {
     spdy
         .createServer(options, app)
         .listen(443, listenServer());
+
+    http
+        .createServer((req, res) => res.redirect(`https://${req.headers.host}${req.url}`))
+        .listen(80);
 } else {
     http.createServer(app)
         .listen(8080, listenServer());
