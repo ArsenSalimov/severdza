@@ -71,7 +71,7 @@ if (isProduction) {
 
     http
         .createServer((req, res) => {
-            res.redirect(`https://${req.headers.host}${req.url}`);
+            res.writeHead(301, {Location: `https://${req.headers.host}${req.url}`});
             res.end();
         })
         .listen(80);
