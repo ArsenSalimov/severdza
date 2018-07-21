@@ -70,7 +70,10 @@ if (isProduction) {
         .listen(443, listenServer());
 
     http
-        .createServer((req, res) => res.redirect(`https://${req.headers.host}${req.url}`))
+        .createServer((req, res) => {
+            res.redirect(`https://${req.headers.host}${req.url}`);
+            res.end();
+        })
         .listen(80);
 } else {
     http.createServer(app)
