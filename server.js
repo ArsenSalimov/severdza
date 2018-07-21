@@ -9,6 +9,7 @@ const serverBundle = require('./build/vue-ssr-server-bundle.json');
 const clientManifest = require('./build/vue-ssr-client-manifest.json');
 
 const app = express();
+app.enable('trust proxy');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const template = fs.readFileSync('./build/index.html', 'utf-8');
@@ -39,6 +40,17 @@ if (!isProduction) {
     app.use(webpackHotMiddleware(compiler));
 }
 
+if (isProduction) {
+    app.use((req, res, next) => {
+        if (req.secure) {
+            next();
+        } else {
+            res.redirect(`https://${req.headers.host}${req.url}`)
+        }
+    });
+}
+
+
 app.get('*', (req, res) => {
     const context = {url: req.url};
 
@@ -47,20 +59,16 @@ app.get('*', (req, res) => {
     })
 });
 
-function listenServer(serverName) {
+function listenServer() {
     return error => {
         if (error) {
             console.error(error);
             return process.exit(1);
         } else {
-            console.log(`${serverName} started`);
+            console.log(`Server started`);
         }
     }
 }
-
-http.createServer(app)
-    .listen(isProduction ? 80 : 8080, listenServer("http"));
-
 
 if (isProduction) {
     const options = {
@@ -70,5 +78,8 @@ if (isProduction) {
 
     spdy
         .createServer(options, app)
-        .listen(443, listenServer("https"));
+        .listen(443, listenServer());
+} else {
+    http.createServer(app)
+        .listen(8080, listenServer());
 }
