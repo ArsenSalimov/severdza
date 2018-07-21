@@ -1,6 +1,8 @@
 <template>
     <div class="title text-center">
-        <h1>{{title}}</h1>
+        <h1 v-if="main">{{title}}</h1>
+        <h1 v-else>{{title}}</h1>
+
         <p v-if="subTitle">{{subTitle}}</p>
     </div>
 </template>
@@ -8,7 +10,13 @@
 <script>
     export default {
         name: 'Title',
-        props: ['title', 'subTitle']
+        props: {
+            title: {},
+            subTitle: {},
+            main: {
+                default: true
+            }
+        },
     }
 </script>
 

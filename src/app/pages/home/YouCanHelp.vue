@@ -1,7 +1,7 @@
 <template>
     <div class="help-section">
         <b-container>
-            <app-title title="Вы тоже можете помочь"/>
+            <app-title title="Вы тоже можете помочь" main="false"/>
 
             <b-row class="hel-container">
                 <b-col>
