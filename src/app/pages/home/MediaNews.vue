@@ -47,7 +47,7 @@
                     },
                     {
                         url: 'https://sevastopol.su/news/pochti-polden-rukovoditel-volontyorskogo-dvizheniya-serdce-sevastopolya-anastasiya-makeeva',
-                        logo: '/media/forPost_logo.gif',
+                        logo: '/media/forPost_logo.png',
                         text: 'Помогать надо «с головой» — севастопольский волонтёр'
                     },
                     {
