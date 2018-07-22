@@ -37,27 +37,27 @@
                 publications: [
                     {
                         url: 'http://ruinformer.com/page/serdce-sevastopolja-i-nash-dom-sevastopol-prodolzhajut-ustraivat-sudbu-tamary-bajadzhi',
-                        logo: '/informer_logo.png',
+                        logo: '/media/informer_logo.png',
                         text: '«Сердце Севастополя» и «Наш дом — Севастополь» продолжают устраивать судьбу Тамары Баяджи'
                     },
                     {
                         url: 'http://primechaniya.ru/home/news/noyabr_2017/peshhernaya_zhenshhina-_uzhas_v_centre_sevastopolya/',
-                        logo: 'premechaniya_logo.png',
+                        logo: '/media/premechaniya_logo.png',
                         text: 'Пещерная женщина: ужас в центре Севастополя'
                     },
                     {
                         url: 'https://sevastopol.su/news/pochti-polden-rukovoditel-volontyorskogo-dvizheniya-serdce-sevastopolya-anastasiya-makeeva',
-                        logo: 'forPost_logo.gif',
+                        logo: '/media/forPost_logo.gif',
                         text: 'Помогать надо «с головой» — севастопольский волонтёр'
                     },
                     {
                         url: 'http://primechaniya.ru/home/news/mart-2018/grazhdanskoe-obshhestvo-kak-sevastopolcy-spasayut-drug-druga/',
-                        logo: 'premechaniya_logo.png',
+                        logo: '/media/premechaniya_logo.png',
                         text: 'Гажданское общество: как севастопольцы спасают друг друг'
                     },
                     {
                         url: 'https://news.rambler.ru/other/38570403-oslepshaya-zhenschina-prozhila-bolshe-goda-v-sevastopolskoy-peschere/',
-                        logo: 'rambler_logo.jpg',
+                        logo: '/media/rambler_logo.jpg',
                         text: 'Ослепшая женщина прожила больше года в севастопольской пещере'
                     },
                     /* {

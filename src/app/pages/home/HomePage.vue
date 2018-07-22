@@ -53,11 +53,11 @@
         data() {
             return {
                 slides: [
-                    'https://pp.userapi.com/c846321/v846321510/99929/F6azbi5AbnI.jpg',
-                    'https://pp.userapi.com/c830709/v830709009/f0a1e/pVl5NkD_8yo.jpg',
-                    'https://pp.userapi.com/c850020/v850020072/16c5e/63fQVzVx8bQ.jpg',
-                    'https://pp.userapi.com/c846324/v846324101/7e03d/64aqe8CcgcY.jpg',
-                    'https://pp.userapi.com/c850032/v850032910/c588/w0bWKOsA6PY.jpg'
+                    '/images/F6azbi5AbnI.jpg',
+                    '/images/pVl5NkD_8yo.jpg',
+                    '/images/63fQVzVx8bQ.jpg',
+                    '/images/64aqe8CcgcY.jpg',
+                    '/images/w0bWKOsA6PY.jpg'
                 ],
                 lastNews: [
                     {},

@@ -1,7 +1,7 @@
 <template>
     <div class="title text-center">
         <h1 v-if="main">{{title}}</h1>
-        <h1 v-else>{{title}}</h1>
+        <h2 v-else>{{title}}</h2>
 
         <p v-if="subTitle">{{subTitle}}</p>
     </div>
@@ -28,7 +28,7 @@
             margin: 21px;
         }
 
-        h1 {
+        h1, h2 {
             font-size: 44px;
             position: relative;
             display: inline-block;

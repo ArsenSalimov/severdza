@@ -7,14 +7,7 @@
                 <b-col>
                     <h3 class="title">Помочь деньгами</h3>
 
-                    <div>
-                        <iframe frameborder="0"
-                                allowtransparency="true"
-                                scrolling="no"
-                                src="https://money.yandex.ru/embed/donate.xml?account=410014790821304&quickpay=donate&payment-type-choice=on&mobile-payment-type-choice=on&default-sum=&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0+%D0%BD%D0%B0%D1%88%D0%B5%D0%B3%D0%BE+%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F&target-visibility=on&project-name=&project-site=&button-text=01&successURL="
-                                width="522" height="90">
-                        </iframe>
-                    </div>
+                    <PaymentForm />
                 </b-col>
 
                 <b-col>
@@ -32,11 +25,13 @@
 
 <script>
     import AppTitle from '../../components/Title';
+    import PaymentForm from './PaymentForm';
 
     export default {
         name: 'YouCanHelp',
         components: {
-            AppTitle
+            AppTitle,
+            PaymentForm
         }
     }
 </script>
