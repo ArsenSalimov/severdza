@@ -9,7 +9,6 @@ const serverBundle = require('./build/vue-ssr-server-bundle.json');
 const clientManifest = require('./build/vue-ssr-client-manifest.json');
 
 const app = express();
-app.enable('trust proxy');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const template = fs.readFileSync('./build/index.html', 'utf-8');
