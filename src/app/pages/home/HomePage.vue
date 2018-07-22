@@ -11,7 +11,7 @@
                     img-height="600"
                     controls>
                 <b-carousel-slide class="carousel" v-for="(slide, index) in slides" :key="index">
-                    <b-image-lazy slot="img" class="image" :src="slide"/>
+                    <b-image slot="img" class="image" :src="slide"/>
                 </b-carousel-slide>
             </b-carousel>
         </b-container>
