@@ -39,6 +39,15 @@ if (!isProduction) {
     app.use(webpackHotMiddleware(compiler));
 }
 
+app.all('*', (req, res) => {
+    if (req.headers.host.match(/^www\..*/i)) {
+        res.writeHead(301, {Location: `https://${req.headers.host}${req.url}`});
+        res.end();
+    } else {
+        next();
+    }
+});
+
 app.get('*', (req, res) => {
     const context = {url: req.url};
 
