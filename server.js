@@ -52,7 +52,16 @@ app.get('*', (req, res) => {
     const context = {url: req.url};
 
     renderer.renderToString(context, (err, html) => {
-        res.end(html);
+        if (!err) {
+            res.end(html);
+        } else {
+            if (err === 'unknown route') {
+                const schema = isProduction ? 'https' : 'http';
+                res.writeHead(301, {Location: `${schema}://${req.headers.host}`});
+                res.end();
+            }
+        }
+
     })
 });
 

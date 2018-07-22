@@ -8,21 +8,25 @@ export default context => {
         router.onReady(() => {
             const matchedComponents = router.getMatchedComponents();
 
-            Promise
-                .all(matchedComponents.map(component => {
-                    if (component.asyncData) {
-                        return component.asyncData({
-                            store,
-                            route: router.currentRoute
-                        })
-                    }
-                }))
-                .then(() => {
-                    context.state = store.state;
+            if (matchedComponents.length === 0) {
+                reject('unknown route')
+            } else {
+                Promise
+                    .all(matchedComponents.map(component => {
+                        if (component.asyncData) {
+                            return component.asyncData({
+                                store,
+                                route: router.currentRoute
+                            })
+                        }
+                    }))
+                    .then(() => {
+                        context.state = store.state;
 
-                    resolve(app);
-                })
-                .catch(reject);
+                        resolve(app);
+                    })
+                    .catch(reject);
+            }
         }, reject)
     });
 }
