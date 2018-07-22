@@ -39,7 +39,7 @@ if (!isProduction) {
     app.use(webpackHotMiddleware(compiler));
 }
 
-app.all('*', (req, res) => {
+app.all('*', (req, res, next) => {
     if (req.headers.host.match(/^www\..*/i)) {
         res.writeHead(301, {Location: `https://${req.headers.host.substring(4)}${req.url}`});
         res.end();
