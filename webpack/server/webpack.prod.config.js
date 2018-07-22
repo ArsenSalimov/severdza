@@ -2,7 +2,6 @@ const baseConfig = require('../webpack.base.config');
 const merge = require('webpack-merge');
 
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(baseConfig, {
     entry: './src/entry-server.js',
@@ -26,14 +25,14 @@ module.exports = merge(baseConfig, {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                 ],
             },
             {
                 test: /\.less$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                     'less-loader'
                 ],
@@ -41,10 +40,6 @@ module.exports = merge(baseConfig, {
         ]
     },
     plugins: [
-        new VueSSRServerPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        })
+        new VueSSRServerPlugin()
     ]
 });

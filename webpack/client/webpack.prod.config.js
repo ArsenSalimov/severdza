@@ -3,7 +3,6 @@ const merge = require('webpack-merge');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -26,14 +25,14 @@ module.exports = merge(baseConfig, {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    'vue-style-loader',
+                    'css-loader'
                 ],
             },
             {
                 test: /\.less$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'vue-style-loader',
                     'css-loader',
                     'less-loader'
                 ],
@@ -49,10 +48,6 @@ module.exports = merge(baseConfig, {
             template: 'src/index.html',
         }),
         new FaviconsWebpackPlugin('./src/app/images/logo.png'),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        }),
         new VueSSRClientPlugin(),
     ],
     optimization: {
