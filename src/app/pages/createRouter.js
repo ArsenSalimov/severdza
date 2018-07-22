@@ -12,6 +12,7 @@ export default function createRouter() {
             {name: 'wards', path: '/wards', component: () => import('./wards/WardsPage')},
             {name: 'feed', path: '/feed', component: () => import('./feed/FeedPage')},
             {name: 'contacts', path: '/contacts', component: () => import('./contacts/ContactsPage')},
+            {path: '*', redirect: '/'},
         ]
     });
 }
