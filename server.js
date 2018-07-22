@@ -41,7 +41,7 @@ if (!isProduction) {
 
 app.all('*', (req, res) => {
     if (req.headers.host.match(/^www\..*/i)) {
-        res.writeHead(301, {Location: `https://${req.headers.host}${req.url}`});
+        res.writeHead(301, {Location: `https://${req.headers.host.substring(4)}${req.url}`});
         res.end();
     } else {
         next();
