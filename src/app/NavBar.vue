@@ -1,6 +1,6 @@
 <template>
     <b-navbar sticky toggleable="md" type="dark" variant="info">
-        <b-navbar-brand class="d-flex" href="#">
+        <b-navbar-brand :to="{name: 'home'}" class="d-flex" href="#">
             <img :src="logo" width="64" height="64">
             <span class="title align-middle">Волонтерское движение<br>"Сердце Севастополя"</span>
         </b-navbar-brand>
@@ -9,7 +9,7 @@
 
         <b-collapse is-nav id="nav-collapse">
             <b-navbar-nav class="w-75 mx-auto" fill tabs>
-                <b-nav-item :to="{ name: 'home'}">Главная</b-nav-item>
+                <b-nav-item :to="{ name: 'home'}" exact>Главная</b-nav-item>
                 <b-nav-item :to="{ name: 'feed'}">Новости</b-nav-item>
                 <b-nav-item :to="{ name: 'wards'}">Подопечные</b-nav-item>
                 <b-nav-item :to="{ name: 'contacts'}">Контакты</b-nav-item>

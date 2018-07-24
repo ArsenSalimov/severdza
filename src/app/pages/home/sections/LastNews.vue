@@ -1,11 +1,11 @@
 <template>
     <div class="last-news-section">
         <b-container class="last-news">
-            <div class="title">Последие новости</div>
+            <div class="title">Последние новости</div>
 
             <b-row>
-                <b-col v-for="(post, index) in lastNews" :key="index">
-                    <b-image width="245" height="163"/>
+                <b-col class="mb-5" md="4" v-for="(post, index) in lastNews" :key="index">
+                    <b-image class="d-block mx-auto" width="245" height="163"/>
                 </b-col>
             </b-row>
         </b-container>

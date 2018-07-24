@@ -3,21 +3,10 @@
         <app-title title="Волонтерское движение “Сердце Севастополя“"
                    sub-title="Помощь людям в трудных жизненных обстоятельствах"/>
 
-        <b-container>
-            <b-carousel
-                    class="carousel"
-                    indicators
-                    img-width="1200"
-                    img-height="600"
-                    controls>
-                <b-carousel-slide class="carousel" v-for="(slide, index) in slides" :key="index">
-                    <b-image slot="img" class="image" :src="slide"/>
-                </b-carousel-slide>
-            </b-carousel>
-        </b-container>
-
+        <Carousel :slides="slides"/>
+        <About class="section"/>
         <MediaNews class="media-news"/>
-        <VideoPublications />
+        <VideoPublications/>
         <LastNews :last-news="lastNews"/>
         <YouCanHelp/>
     </div>
@@ -26,23 +15,23 @@
 <script>
     import {mapState} from 'vuex';
 
-    import bCarousel from 'bootstrap-vue/es/components/carousel/carousel';
-    import bCarouselSlide from 'bootstrap-vue/es/components/carousel/carousel-slide';
     import AppTitle from '../../components/Title';
-    import MediaNews from './MediaNews';
-    import YouCanHelp from './YouCanHelp';
-    import LastNews from './LastNews';
-    import VideoPublications from './VideoPublications';
+    import MediaNews from './sections/MediaNews';
+    import YouCanHelp from './sections/YouCanHelp';
+    import LastNews from './sections/LastNews';
+    import VideoPublications from './sections/VideoPublications';
+    import About from './sections/About';
+    import Carousel from './sections/Carousel';
 
     export default {
         name: 'HomePage',
         components: {
+            Carousel,
+            About,
             VideoPublications,
             LastNews,
             YouCanHelp,
             MediaNews,
-            bCarousel,
-            bCarouselSlide,
             AppTitle
         },
         computed: {
@@ -71,30 +60,25 @@
 </script>
 
 <style lang="less">
-    .carousel {
-        height: 400px;
-
-        &:focus {
-            outline: none;
+    .media-news {
+        @media (min-width: 1em) {
+            margin-top: 15px;
         }
 
-        .image {
-            object-fit: scale-down;
-            object-position: center;
-            width: inherit;
-            height: inherit;
-        }
-
-        .carousel-control-next-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#f00' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/></svg>") !important;
-        }
-
-        .carousel-control-prev-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='#f00' viewBox='0 0 8 8'><path d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/></svg>") !important;
+        @media (min-width: 800px) {
+            margin-top: 75px;
         }
     }
 
-    .media-news {
-        margin-top: 75px;
+    .section {
+        @media (min-width: 1em) {
+            padding-top: 16px;
+        }
+
+        @media (min-width: 800px) {
+            padding-bottom: 64px;
+        }
+
+        padding-bottom: 32px;
     }
 </style>

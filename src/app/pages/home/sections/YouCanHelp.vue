@@ -3,8 +3,8 @@
         <b-container>
             <app-title title="Вы тоже можете помочь" :main="false"/>
 
-            <b-row class="hel-container">
-                <b-col>
+            <b-row class="help-container">
+                <b-col class="mb-3">
                     <h3 class="title">Помочь деньгами</h3>
 
                     <PaymentForm />
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-    import AppTitle from '../../components/Title';
-    import PaymentForm from './PaymentForm';
+    import AppTitle from '../../../components/Title';
+    import PaymentForm from '../../../components/PaymentForm';
 
     export default {
         name: 'YouCanHelp',

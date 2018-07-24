@@ -4,8 +4,8 @@
             <div class="title">Видео публикации</div>
 
             <b-row>
-                <b-col col md="4" class="publication" v-for="(videoPublication, index) in videoPublications" :key="index">
-                    <video-publication :publication="videoPublication"/>
+                <b-col col md="4" class="mr-auto" v-for="(videoPublication, index) in videoPublications" :key="index">
+                    <video-publication class="publication" :publication="videoPublication"/>
                 </b-col>
             </b-row>
         </b-container>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import VideoPublication from '../../components/VideoPublication';
+    import VideoPublication from '../../../components/VideoPublication';
 
     export default {
         name: 'VideoPublications',
@@ -59,7 +59,7 @@
             }
 
             .publication {
-                margin: 25px
+                min-width: 350px;
             }
         }
     }
