@@ -4,6 +4,7 @@ const spdy = require('spdy');
 const compression = require('compression');
 const http = require('http');
 const fs = require('fs');
+const request = require('request');
 const {createBundleRenderer} = require('vue-server-renderer');
 const serverBundle = require('./build/vue-ssr-server-bundle.json');
 const clientManifest = require('./build/vue-ssr-client-manifest.json');
@@ -24,6 +25,11 @@ app.use(compression({
 app.use('/build/', express.static(path.resolve(__dirname, './build/')));
 app.use('/.well-known/', express.static(path.resolve(__dirname, './.well-known/')));
 app.use('/', express.static(path.resolve(__dirname, './public/')));
+
+app.all('/api/*', (req, res) => {
+    const url = 'http://localhost:3000' + req.url;
+    req.pipe(request(url)).pipe(res);
+});
 
 if (!isProduction) {
     const webpack = require('webpack');

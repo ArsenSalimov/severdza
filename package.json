@@ -50,6 +50,7 @@
     "express": "^4.16.3",
     "forever": "^0.15.3",
     "image-layout": "^0.4.1",
+    "request": "^2.87.0",
     "spdy": "^3.4.7",
     "vue": "^2.5.16",
     "vue-alertify": "^1.0.5",
