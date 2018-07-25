@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-git pull && yarn && yarn start:prod
+pm2 deploy production
