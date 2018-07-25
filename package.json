@@ -7,7 +7,6 @@
     "build:dev": "rimraf build && cross-env NODE_ENV=development webpack --progress",
     "build:prod": "rimraf build && cross-env NODE_ENV=production webpack --progress",
     "start:dev": "npm run build:dev && cross-env NODE_ENV=development node server",
-    "start:prod": "forever stop server.js; npm run build:prod && cross-env NODE_ENV=production forever start server.js",
     "start": "npm run start:dev"
   },
   "devDependencies": {
@@ -48,7 +47,6 @@
     "compression": "^1.7.2",
     "date-fns": "^1.29.0",
     "express": "^4.16.3",
-    "forever": "^0.15.3",
     "image-layout": "^0.4.1",
     "request": "^2.87.0",
     "spdy": "^3.4.7",
