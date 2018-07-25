@@ -10,6 +10,7 @@
     "production": {
       "repo": "https://github.com/ArsenSalimov/severdza-frontend.git",
       "ref": "origin/master",
+      "user": "root",
       "host": "94.250.249.85",
       "path": "/root/serdze/deploy/frontend",
       "post-deploy": "yarn && yarn build:prod"
