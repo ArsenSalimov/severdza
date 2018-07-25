@@ -1,7 +1,8 @@
 {
   "apps": [{
     "name": "frontend",
-    "script": "server.js",
+    "script": "yarn",
+    "args": "start:prod",
     "env": {
       "NODE_ENV": "production"
     }
@@ -13,7 +14,7 @@
       "user": "root",
       "host": "94.250.249.85",
       "path": "/root/serdze/deploy/frontend",
-      "post-deploy": "yarn && yarn build:prod"
+      "post-deploy": "yarn"
     }
   }
 }
