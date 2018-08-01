@@ -6,7 +6,6 @@ const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 module.exports = merge(baseConfig, {
     entry: './src/entry-server.js',
     target: 'node',
-    devtool: "eval-source-map",
     mode: 'development',
     output: {
         filename: 'server-bundle.js',

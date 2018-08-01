@@ -19,6 +19,21 @@ const renderer = createBundleRenderer(serverBundle, {
     template
 });
 
+if (!isProduction) {
+    const webpack = require('webpack');
+    const webpackDevMiddleware = require('webpack-dev-middleware');
+    const webpackHotMiddleware = require('webpack-hot-middleware');
+    const webpackConfig = require('./webpack/client');
+
+    const compiler = webpack(webpackConfig);
+
+    app.use(webpackDevMiddleware(compiler, {
+        serverSideRender: true,
+        publicPath: '/build/',
+    }));
+    app.use(webpackHotMiddleware(compiler));
+}
+
 app.use(compression({
     filter: () => true
 }));
@@ -30,20 +45,6 @@ app.all('/api/*', (req, res) => {
     const url = 'http://localhost:3000' + req.url;
     req.pipe(request(url)).pipe(res);
 });
-
-if (!isProduction) {
-    const webpack = require('webpack');
-    const webpackDevMiddleware = require('webpack-dev-middleware');
-    const webpackHotMiddleware = require('webpack-hot-middleware');
-    const webpackConfig = require('./webpack/client');
-
-    const compiler = webpack(webpackConfig);
-
-    app.use(webpackDevMiddleware(compiler, {
-        publicPath: '/build/',
-    }));
-    app.use(webpackHotMiddleware(compiler));
-}
 
 app.all('*', (req, res, next) => {
     if (req.headers.host.match(/^www\..*/i)) {

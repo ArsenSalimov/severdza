@@ -59,6 +59,6 @@
         },
         mounted() {
             this.showInfiniteLoader = true;
-        }
+        },
     };
 </script>

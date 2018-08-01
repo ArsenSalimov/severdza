@@ -4,7 +4,9 @@
     "script": "yarn",
     "args": "start:prod",
     "env": {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "HOST": "94.250.249.85",
+      "PORT": "443"
     }
   }],
   "deploy": {

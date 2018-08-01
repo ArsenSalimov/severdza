@@ -1,5 +1,5 @@
 <template>
-    <div :style="{height: `${imageLayouts.height}px`}">
+    <div ref="container" :style="{height: `${imageLayouts.height}px`}">
         <div class="attachments">
             <div v-for="(attachment, index) in attachments"
                  :key="attachment.id"
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    const maxWidth = 1028;
+    let maxWidth = 1028;
 
     import {PlyrYoutube, PlyrVideo, Plyr} from 'vue-plyr'
     import 'vue-plyr/dist/vue-plyr.css'
@@ -38,6 +38,8 @@
     import * as layoutFixed from 'image-layout/layouts/fixed-partition';
     import * as layoutSingle from 'image-layout/layouts/single';
     import bEmbed from 'bootstrap-vue/es/components/embed/embed';
+
+    import debounce from 'lodash/debounce';
 
     export default {
         name: 'Attachments',
@@ -57,34 +59,46 @@
             }
         },
         methods: {
-            chooseSize(photo) {
-                return photo.sizes.find(size => size.type === 'x');
+            calculateSize() {
+                const attachments = this.attachments
+                    .map(attachment => {
+                            if (attachment.type === 'photo') {
+                                return {width: attachment.photo.width, height: attachment.photo.height};
+                            } else {
+                                return {width: attachment.video.width || maxWidth, height: attachment.video.height || (maxWidth / 1.78)};
+                            }
+                        }
+                    );
+
+                if (attachments.length === 1) {
+                    this.imageLayouts = layoutSingle(attachments, {
+                        align: 'center',
+                        containerWidth: maxWidth,
+                        spacing: 10
+                    });
+                } else {
+                    this.imageLayouts = layoutFixed(attachments, {
+                        align: 'center',
+                        containerWidth: maxWidth,
+                        spacing: 10
+                    });
+                }
             },
         },
         created() {
-            const attachments = this.attachments
-                .map(attachment => {
-                        if (attachment.type === 'photo') {
-                            return {width: attachment.photo.width, height: attachment.photo.height};
-                        } else {
-                            return {width: attachment.video.width || maxWidth, height: attachment.video.height || (maxWidth / 1.78)};
-                        }
-                    }
-                );
+            this.calculateSize();
+        },
+        mounted() {
+            callback();
+            const callback =  () => {
+                const width = this.$refs.container.clientWidth;
+                if (width > 0) {
+                    maxWidth = this.$refs.container.clientWidth;
+                    this.calculateSize();
+                }
+            };
 
-            if (attachments.length === 1) {
-                this.imageLayouts = layoutSingle(attachments, {
-                    align: 'center',
-                    containerWidth: maxWidth,
-                    spacing: 10
-                });
-            } else {
-                this.imageLayouts = layoutFixed(attachments, {
-                    align: 'center',
-                    containerWidth: maxWidth,
-                    spacing: 10
-                });
-            }
+            window.addEventListener('resize', debounce(callback, 100))
         }
     }
 </script>

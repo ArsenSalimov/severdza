@@ -17,5 +17,8 @@
                 fullLoaded: state => state.fullLoaded,
             })
         },
+        asyncData({ store }) {
+            return store.dispatch('loadFeed')
+        }
     };
 </script>
