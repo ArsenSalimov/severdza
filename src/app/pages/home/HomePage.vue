@@ -7,7 +7,6 @@
         <About class="section"/>
         <MediaNews class="media-news"/>
         <VideoPublications/>
-        <LastNews :last-news="lastNews"/>
         <YouCanHelp/>
     </div>
 </template>

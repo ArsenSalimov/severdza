@@ -9,8 +9,8 @@ export default function createRouter() {
         mode: 'history',
         routes: [
             {name: 'home', path: '/', component: HomePage},
-            {name: 'wards', path: '/wards', component: () => import('./wards/WardsPage')},
-            {name: 'feed', path: '/feed', component: () => import('./feed/FeedPage')},
+            //{name: 'wards', path: '/wards', component: () => import('./wards/WardsPage')},
+            //{name: 'feed', path: '/feed', component: () => import('./feed/FeedPage')},
             {name: 'contacts', path: '/contacts', component: () => import('./contacts/ContactsPage')},
         ]
     });

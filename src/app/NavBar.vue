@@ -10,8 +10,8 @@
         <b-collapse is-nav id="nav-collapse">
             <b-navbar-nav class="w-75 mx-auto" fill tabs>
                 <b-nav-item :to="{ name: 'home'}" exact>Главная</b-nav-item>
-                <b-nav-item :to="{ name: 'feed'}">Новости</b-nav-item>
-                <b-nav-item :to="{ name: 'wards'}">Подопечные</b-nav-item>
+               <!-- <b-nav-item :to="{ name: 'feed'}">Новости</b-nav-item>
+                <b-nav-item :to="{ name: 'wards'}">Подопечные</b-nav-item> -->
                 <b-nav-item :to="{ name: 'contacts'}">Контакты</b-nav-item>
             </b-navbar-nav>
         </b-collapse>

@@ -1,10 +1,10 @@
 <template>
     <div class="payment-form">
         <b-form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" inline>
-            <input type="hidden" name="receiver" value="41001xxxxxxxxxxxx">
+            <input type="hidden" name="receiver" value="410014790821304">
             <input type="hidden" name="quickpay-form" value="donate">
             <input type="hidden" name="targets" value="Пожертвование">
-            <b-form-input name="sum" type="number"/>
+            <b-form-input name="sum" type="number" value="100"/>
             <b-form-radio-group>
                 <b-form-radio value="AC">
                     <b-image src="/payment/card_logo.png"/>
