@@ -19,6 +19,8 @@ const renderer = createBundleRenderer(serverBundle, {
     template
 });
 
+const CERTIFICATE_PATH = 'xn--80aaaa2ajeaseduch0bimsm7c5hyc.xn--p1ai';
+
 if (!isProduction) {
     const webpack = require('webpack');
     const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -85,8 +87,8 @@ function listenServer() {
 
 if (isProduction) {
     const options = {
-        key: fs.readFileSync('/etc/letsencrypt/live/xn----8sbfgebb4c0aakelfdq4d4j.xn--p1ai/privkey.pem', 'utf8'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/xn----8sbfgebb4c0aakelfdq4d4j.xn--p1ai/cert.pem', 'utf8')
+        key: fs.readFileSync(`/etc/letsencrypt/live/${CERTIFICATE_PATH}/privkey.pem`, 'utf8'),
+        cert: fs.readFileSync(`/etc/letsencrypt/live/${CERTIFICATE_PATH}/cert.pem`, 'utf8')
     };
 
     spdy
