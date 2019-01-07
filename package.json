@@ -8,7 +8,8 @@
     "build:prod": "rimraf build && cross-env NODE_ENV=production webpack --progress",
     "start:dev": "npm run build:dev && cross-env NODE_ENV=development node server",
     "start:prod": "npm run build:prod && cross-env NODE_ENV=production node server",
-    "start": "npm run start:dev"
+    "start": "npm run start:dev",
+    "deploy": "pm2 deploy production --env production"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
