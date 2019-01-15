@@ -10,7 +10,7 @@ export default function createRouter() {
         routes: [
             {name: 'home', path: '/', component: HomePage},
             //{name: 'wards', path: '/wards', component: () => import('./wards/WardsPage')},
-            //{name: 'feed', path: '/feed', component: () => import('./feed/FeedPage')},
+            {name: 'feed', path: '/feed', component: () => import('./feed/FeedPage')},
             {name: 'contacts', path: '/contacts', component: () => import('./contacts/ContactsPage')},
         ]
     });

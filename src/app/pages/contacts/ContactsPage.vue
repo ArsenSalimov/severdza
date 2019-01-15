@@ -1,6 +1,6 @@
 <template>
     <b-container>
-        <app-title title="Контакты Сердца Севастополя" sub-title="Как найти, позонить и к кому обратиться в волонтерском движении Сердце Севастополя"/>
+        <app-title title="Контакты Сердца Севастополя" sub-title="Как найти, позонить и к кому обратиться в движении Сердце Севастополя"/>
 
         <SocialNetworks :social-networks="socialNetworks"/>
         <volontiers-list :volontiers="volontiers"/>
