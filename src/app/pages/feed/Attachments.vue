@@ -89,7 +89,6 @@
             this.calculateSize();
         },
         mounted() {
-            callback();
             const callback =  () => {
                 const width = this.$refs.container.clientWidth;
                 if (width > 0) {
@@ -98,6 +97,7 @@
                 }
             };
 
+            callback();
             window.addEventListener('resize', debounce(callback, 100))
         }
     }
