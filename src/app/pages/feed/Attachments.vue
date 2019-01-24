@@ -12,6 +12,7 @@
                  }">
 
                 <b-image
+                        class="attachment-image"
                         fluid
                         v-if="attachment.type === 'photo'"
                         blank-color="#bbb"
@@ -62,21 +63,18 @@
             calculateSize() {
                 const attachments = this.attachments
                     .map(attachment => {
-                            if (attachment.type === 'photo') {
-                                const width = Math.min(attachment.photo.width, maxWidth);
-                                const height = (attachment.photo.height * width) / attachment.photo.width;
-
-                                return {width, height};
-                            } else {
-                                const originalWidth = attachment.video.width || maxWidth;
-                                const originalHeight = attachment.video.height || maxWidth / 1.78;
-
-                                const width = Math.min(originalWidth, maxWidth);
-                                const height = (originalWidth * width) / originalHeight;
-                                return {width, height };
-                            }
+                        if (attachment.type === 'photo') {
+                            return {width: attachment.photo.width || maxWidth, height: attachment.photo.height };
+                        } else {
+                            return {width: attachment.video.width || maxWidth, height: attachment.video.height || maxWidth / 1.78 };
                         }
-                    );
+                    })
+                    .map(sizes => {
+                        const width = this.attachments.length > 1 ?  Math.min(sizes.width, maxWidth) : maxWidth;
+                        const height = (sizes.height * width) / sizes.width;
+
+                        return {width, height}
+                    });
 
                 if (attachments.length === 1) {
                     this.imageLayouts = layoutSingle(attachments, {
@@ -118,6 +116,11 @@
 
         .attachment {
             position: absolute;
+
+            .attachment-image {
+                width: 100%;
+                height: 100%;
+            }
 
             .embed-attachment {
                 width: 100%;
