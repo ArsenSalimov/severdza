@@ -64,10 +64,16 @@
                     .map(attachment => {
                             if (attachment.type === 'photo') {
                                 const width = Math.min(attachment.photo.width, maxWidth);
-                                return {width: width, height: attachment.photo.height};
+                                const height = (attachment.photo.height * width) / attachment.photo.width;
+
+                                return {width, height};
                             } else {
-                                const width = Math.min(attachment.video.width, maxWidth);
-                                return {width: width, height: attachment.video.height || (maxWidth / 1.78)};
+                                const originalWidth = attachment.video.width || maxWidth;
+                                const originalHeight = attachment.video.height || maxWidth / 1.78;
+
+                                const width = Math.min(originalWidth, maxWidth);
+                                const height = (originalWidth * width) / originalHeight;
+                                return {width, height };
                             }
                         }
                     );
