@@ -63,9 +63,11 @@
                 const attachments = this.attachments
                     .map(attachment => {
                             if (attachment.type === 'photo') {
-                                return {width: attachment.photo.width, height: attachment.photo.height};
+                                const width = Math.min(attachment.photo.width, maxWidth);
+                                return {width: width, height: attachment.photo.height};
                             } else {
-                                return {width: attachment.video.width || maxWidth, height: attachment.video.height || (maxWidth / 1.78)};
+                                const width = Math.min(attachment.video.width, maxWidth);
+                                return {width: width, height: attachment.video.height || (maxWidth / 1.78)};
                             }
                         }
                     );
