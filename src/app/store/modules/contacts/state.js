@@ -44,18 +44,6 @@ export default {
             position: 'Администратор',
             vkProfile: 'https://vk.com/balakishieva84',
         },
-        {
-            name: 'Юля Будникова',
-            photo: 'https://pp.userapi.com/c830509/v830509971/1d6b83/SzS6qCaqBZ4.jpg',
-            position: 'Администратор',
-            vkProfile: 'https://vk.com/yuli1985',
-        },
-        {
-            name: 'Лана Машистова',
-            photo: 'https://pp.userapi.com/c625331/v625331420/13401/mMjvm-islm8.jpg',
-            position: 'Администратор',
-            vkProfile: 'https://vk.com/id185044420',
-        },
     ],
     socialNetworks: {
         vk: 'https://vk.com',
