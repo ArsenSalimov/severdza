@@ -10,7 +10,7 @@ const serverBundle = require('./build/vue-ssr-server-bundle.json');
 const clientManifest = require('./build/vue-ssr-client-manifest.json');
 
 const app = express();
-const isProduction = false//process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 const template = fs.readFileSync('./build/index.html', 'utf-8');
 const renderer = createBundleRenderer(serverBundle, {
